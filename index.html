@@ -4,7 +4,8 @@
     <title>No Server Round 2!</title>
     <link rel="stylesheet" href="styles/main.css">
   </head>
-  <body>
+  <body ng-app="noServer2">
+    <ng-view></ng-view>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-grid/build/ng-grid.js"></script>
@@ -12,7 +13,8 @@
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.js"></script>
     <script src="scripts/app.js"></script>
-    <script src="scripts/service.js"></script>
+    <script src="scripts/services/login/loginService.js"></script>
+    <script src="scripts/services/trips/tripsService.js"></script>
     <script src="scripts/controllers/addTrip/addTripCtrl.js"></script>
     <script src="scripts/controllers/currentTrip/currentTripCtrl.js"></script>
     <script src="scripts/controllers/homePage/homePageCtrl.js"></script>

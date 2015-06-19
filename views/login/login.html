@@ -1,0 +1,16 @@
+
+<div class="container">
+  <h2 ng-click="toggleRegister()">Register</h2>
+  <form ng-submit="register(newUser)" ng-show="registerShow">
+    <input type="text" ng-model="newUser.name" placeholder="Name..."/>
+    <input type="email" ng-model="newUser.email" placeholder="Email..."/>
+    <input type="password" ng-model="newUser.password" placeholder="Password..."/>
+    <button ng-click="register(newUser)">Register!</button>
+  </form>
+  <h2 ng-click="toggleLogin()">Login</h2>
+  <form ng-submit="login(user)" ng-show="loginShow">
+    <input type="email" ng-model="user.email" placeholder="Email..."/>
+    <input type="password" ng-model="user.password" placeholder="Password..."/>
+    <button ng-click="login(user)">Log In!</button>
+  </form>
+</div>
