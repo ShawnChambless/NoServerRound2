@@ -3,3 +3,23 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0; }
+
+.infoBarWrapper {
+  display: flex;
+  margin: 20px 20px;
+  width: 100%; }
+
+.logoWrapper {
+  width: 40%; }
+  .logoWrapper .logo {
+    width: 100%; }
+
+.usernameWrapper {
+  width: 40%; }
+  .usernameWrapper .username {
+    width: 100%; }
+
+.logoutWrapper {
+  width: 20%; }
+  .logoutWrapper .logoutBtn {
+    width: 100%; }

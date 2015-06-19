@@ -9,7 +9,6 @@ app.controller('loginCtrl', function($scope, loginService, $firebaseObject, $win
     loginService.authObj.$onAuth(function(authData) {
        $scope.authData = authData;
        loginService.authData = authData;
-       $window.location.href='/#/home';
         var userRef = new Firebase('https://noserverproject.firebaseio.com/users/' + authData.uid),
             user = $firebaseObject(userRef);
         user.$loaded().then(function(user) { // Wait for user to be loaded before setting user details
@@ -35,14 +34,18 @@ app.controller('loginCtrl', function($scope, loginService, $firebaseObject, $win
         loginService.register($scope.newUser);
     }
 
-    $scope.login = function() {
+    $scope.login = function(authData) {
         loginService.login($scope.user);
-
+        if(authData) {
+            $window.location.href='/#/home'
+            console.log(authData)
+        }
     }
 
     $scope.logout = function(authObj, ub) {
-        loginService.authObj.unauth();
-        unbind()
+        $scope.authObj.$unauth()
+        unbind();
+        $window.location.href='/#/login';
     }
 
 });

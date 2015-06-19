@@ -3,7 +3,18 @@ html
     head
         title No Server Round 2!
         link(rel='stylesheet' href='styles/main.css')
-    body(ng-app='noServer2')
+    body(ng-app='noServer2' ng-controller='indexCtrl')
+        .infoBarWrapper
+            .logoWrapper
+                .logo
+                    img(ng-src='http://nicenicejpg.com/75')
+            .usernameWrapper
+                .username {{authData.password.email}}
+            .logoutWrapper
+                .logoutBtn(ng-controller='loginCtrl' ng-click='logout()') Log Out
+            
+        
+        
         ng-view
         
         script(src='bower_components/jquery/dist/jquery.js')
@@ -15,6 +26,7 @@ html
         script(src='scripts/app.js')
         script(src='scripts/services/login/loginService.js')
         script(src='scripts/services/trips/tripsService.js')
+        script(src='scripts/controllers/index/indexCtrl.js')
         script(src='scripts/controllers/addTrip/addTripCtrl.js')
         script(src='scripts/controllers/currentTrip/currentTripCtrl.js')
         script(src='scripts/controllers/homePage/homePageCtrl.js')

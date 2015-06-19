@@ -1,1 +1,13 @@
-p HELLO
+h1 Dashboard
+
+.tripsWrapper
+    .addTripContainer
+        form(ng-submit='addTrip()')
+            input(type='text' ng-model='newTrip.origin' placeholder='Start...')
+            input(type='text' ng-model='newTrip.startDate' placeholder='Date mm/dd/yy')
+            input(type='text' ng-model='newTrip.destination' placeholder='End...')
+            input(type='text' ng-model='newTrip.endDate' placeholder='Date mm/dd/yy')
+            button(ng-click='addTrip()') Get going!
+    .previousTripsContainer
+        
+    .currentTripContainer

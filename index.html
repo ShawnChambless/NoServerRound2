@@ -4,7 +4,18 @@
     <title>No Server Round 2!</title>
     <link rel="stylesheet" href="styles/main.css">
   </head>
-  <body ng-app="noServer2">
+  <body ng-app="noServer2" ng-controller="indexCtrl">
+    <div class="infoBarWrapper">
+      <div class="logoWrapper">
+        <div class="logo"><img ng-src="http://nicenicejpg.com/75"></div>
+      </div>
+      <div class="usernameWrapper">
+        <div class="username">{{authData.password.email}}</div>
+      </div>
+      <div class="logoutWrapper">
+        <div ng-controller="loginCtrl" ng-click="logout()" class="logoutBtn">Log Out</div>
+      </div>
+    </div>
     <ng-view></ng-view>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -15,6 +26,7 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/services/login/loginService.js"></script>
     <script src="scripts/services/trips/tripsService.js"></script>
+    <script src="scripts/controllers/index/indexCtrl.js"></script>
     <script src="scripts/controllers/addTrip/addTripCtrl.js"></script>
     <script src="scripts/controllers/currentTrip/currentTripCtrl.js"></script>
     <script src="scripts/controllers/homePage/homePageCtrl.js"></script>
