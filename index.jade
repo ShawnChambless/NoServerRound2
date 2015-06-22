@@ -10,7 +10,7 @@ html
                     a(ng-href='/#/home')
                         img(ng-src='http://nicenicejpg.com/75')
             .usernameWrapper
-                .username {{username}}
+                .username {{authData.password.email}}
             .logoutWrapper
                 .logoutBtn(ng-controller='loginCtrl' ng-click='logout()') Log Out
             
