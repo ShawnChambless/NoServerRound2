@@ -1,15 +1,24 @@
 
 <h1>Dashboard</h1>
 <div class="tripsWrapper">
-  <div class="addTripContainer">
+  <div class="addTripContainer"><a ng-href="/#/newTrip">
+      <h2>New Trip!</h2></a>
     <form ng-submit="addTrip()">
       <input type="text" ng-model="newTrip.origin" placeholder="Start..."/>
-      <input type="text" ng-model="newTrip.startDate" placeholder="Date mm/dd/yy"/>
+      <input type="text" ng-model="newTrip.startDate" placeholder="mm/dd/yy"/>
       <input type="text" ng-model="newTrip.destination" placeholder="End..."/>
-      <input type="text" ng-model="newTrip.endDate" placeholder="Date mm/dd/yy"/>
+      <input type="text" ng-model="newTrip.endDate" placeholder="mm/dd/yy"/>
       <button ng-click="addTrip()">Get going!</button>
     </form>
   </div>
-  <div class="previousTripsContainer"></div>
-  <div class="currentTripContainer"></div>
+  <div class="previousTripsContainer"><a ng-href="/#/previousTrips">
+      <h2>Previous Trips</h2></a>
+    <div ng-repeat="previousTrip in previousTrips">{{previousTrip[0].origin}} <strong>To</strong> {{previousTrip[0].destination}}</div>
+  </div>
+  <div class="currentTripContainer"><a ng-href="/#/currentTrip">
+      <h2>Current Trip</h2></a>
+    <div>{{currentTrip[0].origin}} <strong>To</strong> {{currentTrip[0].destination}} {{currentTrip[0].distance}} miles
+      <button ng-click="toPreviousTrips(currentTrip)"></button>
+    </div>
+  </div>
 </div>

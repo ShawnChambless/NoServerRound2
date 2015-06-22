@@ -2,12 +2,22 @@ h1 Dashboard
 
 .tripsWrapper
     .addTripContainer
+        a(ng-href='/#/newTrip')
+            h2 New Trip!
         form(ng-submit='addTrip()')
             input(type='text' ng-model='newTrip.origin' placeholder='Start...')
-            input(type='text' ng-model='newTrip.startDate' placeholder='Date mm/dd/yy')
+            input(type='text' ng-model='newTrip.startDate' placeholder='mm/dd/yy')
             input(type='text' ng-model='newTrip.destination' placeholder='End...')
-            input(type='text' ng-model='newTrip.endDate' placeholder='Date mm/dd/yy')
+            input(type='text' ng-model='newTrip.endDate' placeholder='mm/dd/yy')
             button(ng-click='addTrip()') Get going!
     .previousTripsContainer
-        
+        a(ng-href='/#/previousTrips')
+            h2 Previous Trips
+        div(ng-repeat='previousTrip in previousTrips')
+            {{previousTrip[0].origin}} <strong>To</strong> {{previousTrip[0].destination}}
     .currentTripContainer
+        a(ng-href='/#/currentTrip')
+            h2 Current Trip
+        div
+            {{currentTrip[0].origin}} <strong>To</strong> {{currentTrip[0].destination}} {{currentTrip[0].distance}} miles
+            button(ng-click='toPreviousTrips(currentTrip)')
