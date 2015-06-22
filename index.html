@@ -7,10 +7,10 @@
   <body ng-app="noServer2" ng-controller="indexCtrl">
     <div class="infoBarWrapper">
       <div class="logoWrapper">
-        <div class="logo"><img ng-src="http://nicenicejpg.com/75"></div>
+        <div class="logo"><a ng-href="/#/home"><img ng-src="http://nicenicejpg.com/75"></a></div>
       </div>
       <div class="usernameWrapper">
-        <div class="username">{{authData.password.email}}</div>
+        <div class="username">{{username}}</div>
       </div>
       <div class="logoutWrapper">
         <div ng-controller="loginCtrl" ng-click="logout()" class="logoutBtn">Log Out</div>

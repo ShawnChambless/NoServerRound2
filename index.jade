@@ -7,9 +7,10 @@ html
         .infoBarWrapper
             .logoWrapper
                 .logo
-                    img(ng-src='http://nicenicejpg.com/75')
+                    a(ng-href='/#/home')
+                        img(ng-src='http://nicenicejpg.com/75')
             .usernameWrapper
-                .username {{authData.password.email}}
+                .username {{username}}
             .logoutWrapper
                 .logoutBtn(ng-controller='loginCtrl' ng-click='logout()') Log Out
             
