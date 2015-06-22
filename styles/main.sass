@@ -1,8 +1,15 @@
+//Base Styling
 html, body
     height: 100vh
     width: 100%
     margin: 0
     padding: 0
+body
+    color: #444
+    font-weight: 200
+    font-family: 'Helvetica Nue', Helvetica, Arial, sans-serif
+a
+    color: inherit
 .infoBarWrapper
     display: flex
     margin: 20px 20px
@@ -10,7 +17,7 @@ html, body
 .logoWrapper
     width: 40%
     .logo
-        width: 100%
+        width: 75px
 .usernameWrapper
     width: 40%
     .username
@@ -19,6 +26,10 @@ html, body
     width: 20%
     .logoutBtn
         width: 100%
+        cursor: pointer
+.container
+    h2
+        cursor: pointer
 @import "modules/0_login/login"
 @import "modules/1_homePage/homePage"
 @import "modules/2_addTrip/addTrip"
