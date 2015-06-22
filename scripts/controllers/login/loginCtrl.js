@@ -1,33 +1,37 @@
 var app = angular.module('noServer2');
 
 app.controller('loginCtrl', function($scope, loginService, $firebaseObject, $window) {
-
-    $scope.loginShow = false;
-    $scope.registerShow = true;
+    $scope.loginShow = true;
+    $scope.registerShow = false;
+    $scope.authObj = loginService.authObj
 
     var ub; //unbind the user upon logout
     loginService.authObj.$onAuth(function(authData) {
-       $scope.authData = authData;
        loginService.authData = authData;
-        var userRef = new Firebase('https://noserverproject.firebaseio.com/users/' + authData.uid),
+       if(!authData) {
+            $window.location.href = '/#/login';
+        }
+        var userRef = new Firebase('https://noserverproject2.firebaseio.com/users/' + authData.uid),
             user = $firebaseObject(userRef);
         user.$loaded().then(function(user) { // Wait for user to be loaded before setting user details
            user.$save();
            user.$bindTo($scope, 'user').then(function(ub) {
                unbind = ub
+               if(authData) {
+                   $window.location.href = '/#/home';
+               };
            });
         });
     });
 
-
     $scope.toggleLogin = function() {
-        $scope.loginShow = !$scope.loginShow;
-        $scope.registerShow = !$scope.registerShow;
+        $scope.loginShow = true;
+        $scope.registerShow = false;
     };
 
     $scope.toggleRegister = function() {
-        $scope.registerShow = !$scope.registerShow;
-        $scope.loginShow = !$scope.loginShow;
+        $scope.registerShow = true;
+        $scope.loginShow = false;
     };
 
     $scope.register = function() {
@@ -36,16 +40,12 @@ app.controller('loginCtrl', function($scope, loginService, $firebaseObject, $win
 
     $scope.login = function(authData) {
         loginService.login($scope.user);
-        if(authData) {
-            $window.location.href='/#/home'
             console.log(authData)
-        }
     }
 
     $scope.logout = function(authObj, ub) {
-        $scope.authObj.$unauth()
+        $scope.authObj.$unauth();
         unbind();
-        $window.location.href='/#/login';
     }
 
 });
