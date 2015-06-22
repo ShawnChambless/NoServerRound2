@@ -9,7 +9,7 @@ app.config(function($routeProvider) {
 			templateUrl: 'views/homePage/homeTmpl.html',
 			controller: 'homePageCtrl'
 		})
-		.when('/addTrip', {
+		.when('/newTrip', {
 			templateUrl: 'views/addTrip/addTrip.html',
 			controller: 'addTripCtrl'
 		})
